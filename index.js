@@ -47,8 +47,10 @@ class Blockchain {
 
 let BlockChain = new Blockchain()
 
-BlockChain.addBlock(new Block(1, new Date(), { data: 'this is my first block' }))
-BlockChain.addBlock(new Block(2, new Date(), { data: 'this is my second block' }))
+for (let a = 0; a < 10; a++) {
+    BlockChain.addBlock(new Block(a + 1, new Date(), { data: a + 1 }))
+}
+
 
 console.log(BlockChain.chain)
 console.log(BlockChain.isChainValid())
