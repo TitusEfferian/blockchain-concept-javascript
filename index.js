@@ -31,7 +31,7 @@ class Blockchain {
     }
 
     isChainValid() {
-        for (let a = 0; a < this.chain.length; a++) {
+        for (let a = 1; a < this.chain.length; a++) {
             const currentBlock = this.chain[a]
             const previousBlock = this.chain[a - 1]
             if (currentBlock.hash !== currentBlock.calculateHash()) {
@@ -47,7 +47,8 @@ class Blockchain {
 
 let BlockChain = new Blockchain()
 
-BlockChain.addBlock(new Block(1,new Date(),{data:'this is my first block'}))
-BlockChain.addBlock(new Block(2,new Date(),{data:'this is my second block'}))
+BlockChain.addBlock(new Block(1, new Date(), { data: 'this is my first block' }))
+BlockChain.addBlock(new Block(2, new Date(), { data: 'this is my second block' }))
 
 console.log(BlockChain.chain)
+console.log(BlockChain.isChainValid())
